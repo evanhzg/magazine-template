@@ -36,7 +36,7 @@ h3
 {
   font-family: $ff-headings;
   font-weight: $fw-headings;
-  font-size: 3rem;
+  font-size: 4rem;
 
   text-transform: uppercase;
 }
@@ -47,7 +47,6 @@ h1 {
 
 h2 {
   font-family: Arial;
-  font-size: 2.5rem;
   letter-spacing: 1px;
 }
 
@@ -128,6 +127,38 @@ p {
   & > * {
     width: 50vw;
     height: calc(100vh - 2em);
+  }
+}
+
+#art__02 {
+  display: flex;
+  justify-content: space-between;
+
+  background-image: url("../assets/art02-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 12em);
+
+  margin: 0;
+  padding: 6em;
+
+
+  > * {
+    max-width: 50%;
+  }
+
+  p {
+    max-width: 35%;
+    font-size: 2.4em;
+    text-align: start;
+  }
+
+  :nth-child(1) {
+    color: #292929;
+    div {
+      background-color: #292929;
+      width: 50%;
+    }
   }
 }
 
