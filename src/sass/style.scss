@@ -3,6 +3,7 @@ $clr-default-bg : #292929;
 $clr-default-text : #FFFFFF;
 
 $ff-headings : 'Arial Black', sans-serif;
+$ff-default : 'Roboto Slab', serif;
 
 $fw-headings : 900;
 
@@ -12,12 +13,21 @@ body, html {
   height: 100%;
   width: 100%;
   margin: 0;
+  font-family: $ff-default;
 }
 
 body
 {
   background-color: $clr-default-bg;
   color: $clr-default-text;
+}
+
+
+h1,
+h2,
+h3,
+p {
+  cursor: default;
 }
 
 h1,
@@ -41,6 +51,13 @@ h2 {
   letter-spacing: 1px;
 }
 
+p {
+  font-size: 1.5em;
+  text-align: justify;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
 // Classes settings
 .container {
   height: 100vh;
@@ -53,8 +70,25 @@ h2 {
 }
 
 .art__picture img {
-  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  max-height: 100vh;
 }
+
+.art__body__text {
+  display: flex;
+  gap: 1.5em;
+  > * {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5em;
+    margin: 0;
+    max-width: 50%;
+  }
+}
+
 // Specific settings
 #art__01 {
   display: flex;
@@ -63,9 +97,14 @@ h2 {
   min-height: 100vh;
   height: 100vh;
   .art__body {
-    padding: 1em;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 80vh;
 
     .art__body__header {
+
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -96,7 +135,7 @@ h2 {
 #hero {
   background-image: url("../assets/hero-bg.jpeg");
   background-size: cover;
-  background-position: 50% 30%;
+  background-position: 50% 55%;
 
   display: flex;
   min-height: 100vh;
