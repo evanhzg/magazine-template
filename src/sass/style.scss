@@ -10,16 +10,27 @@ $fw-headings : 900;
 // Global settings
 
 body, html {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0;
   font-family: $ff-default;
+  position: relative;
 }
 
 body
 {
   background-color: $clr-default-bg;
   color: $clr-default-text;
+
+  * {
+    transition: 2s;
+  }
+
+  main {
+    section {
+      transition: 2s;
+    }
+  }
 }
 
 
@@ -55,6 +66,13 @@ p {
   text-align: justify;
   margin: 0;
   letter-spacing: 0.5px;
+}
+
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
 }
 
 // Classes settings
@@ -93,7 +111,7 @@ p {
   display: flex;
   flex-direction: row;
 
-  min-height: 100vh;
+  height: 100vh;
   height: 100vh;
   .art__body {
     padding: 1.5em;
@@ -204,20 +222,20 @@ p {
         content: '';
         width: 55%;
         border: 2px solid #292929;
+        transition: .5s;
+
       }
 
       &::before {
         top: -.5em;
         position: absolute;
         left: -10%;
-        transition: .5s;
       }
 
       &::after {
         position: absolute;
         right: -10%;
         bottom: -.5em;
-        transition: .5s;
 
       }
     }
@@ -246,15 +264,10 @@ p {
       }
 
       button {
-        cursor: pointer;
-
         position: absolute;
         transform: translate(45%, -50%);
         top: 50%;
         right: 0;
-        text-transform: uppercase;
-        border: none;
-        background-color: transparent;
         color: #B6B6B6;
 
         &:hover {
@@ -272,10 +285,90 @@ p {
   background-position: 50% 55%;
 
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   >* {
     margin: auto;
   }
 }
 
-// ART01 / SCREEN 2
+// FOOTER
+
+footer,
+header
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+header {
+
+  display: flex;
+  align-items: center;
+  padding-block: 1em;
+  transition: .2s;
+
+  a {
+    cursor: pointer;
+    &:not(:active) {
+      i {
+        opacity: .2;
+      }
+    }
+
+    &:active {
+      i {
+        opacity: 1;
+        color: blue;
+      }
+    }
+
+    i {
+      font-size: 4rem;
+      margin: 0;
+      color: #FFFFFF;
+      transition: .2s;
+    }
+  }
+
+  #nomenu {
+    display: none;
+  }
+}
+
+header a:hover {
+   i {
+     opacity: 1
+  }
+}
+
+footer {
+  padding-block: 4em;
+  bottom: 0;
+  font-family: Arial;
+  font-size: .8rem;
+  color: #B6B6B6;
+}
+
+#main:target {
+  max-height: 100vh;
+  header {
+    #menu {
+      display: none;
+    }
+    #nomenu {
+      display: block;
+    }
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    max-height: 10em;
+
+    * {
+      display: none !important;
+    }
+  }
+}
