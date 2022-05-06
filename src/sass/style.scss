@@ -1,0 +1,108 @@
+// Variables
+$clr-default-bg : #292929;
+$clr-default-text : #FFFFFF;
+
+$ff-headings : 'Arial Black', sans-serif;
+
+$fw-headings : 900;
+
+// Global settings
+
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body
+{
+  background-color: $clr-default-bg;
+  color: $clr-default-text;
+}
+
+h1,
+h2,
+h3
+{
+  font-family: $ff-headings;
+  font-weight: $fw-headings;
+  font-size: 3rem;
+
+  text-transform: uppercase;
+}
+
+h1 {
+  color: #292929;
+}
+
+h2 {
+  font-family: Arial;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+// Classes settings
+.container {
+  height: 100vh;
+}
+
+.divider {
+  width: 8em;
+  height: 8px;
+  background-color: white;
+}
+
+.art__picture img {
+  max-width: 100%;
+}
+// Specific settings
+#art__01 {
+  display: flex;
+  flex-direction: row;
+
+  min-height: 100vh;
+  height: 100vh;
+  .art__body {
+    padding: 1em;
+
+    .art__body__header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .divider {
+        margin-top: 2em;
+      }
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .art__body__text {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  & > * {
+    width: 50vw;
+    height: calc(100vh - 2em);
+  }
+}
+
+// HERO / SCREEN 1
+#hero {
+  background-image: url("../assets/hero-bg.jpeg");
+  background-size: cover;
+  background-position: 50% 30%;
+
+  display: flex;
+  min-height: 100vh;
+  >* {
+    margin: auto;
+  }
+}
+
+// ART01 / SCREEN 2
