@@ -10,7 +10,7 @@ $fw-headings : 900;
 // Global settings
 
 body, html {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   margin: 0;
   font-family: $ff-default;
@@ -22,14 +22,8 @@ body
   background-color: $clr-default-bg;
   color: $clr-default-text;
 
-  * {
-    transition: 2s;
-  }
-
   main {
-    section {
-      transition: 2s;
-    }
+    height: 100%;
   }
 }
 
@@ -304,7 +298,6 @@ header
 }
 
 header {
-
   display: flex;
   align-items: center;
   padding-block: 1em;
