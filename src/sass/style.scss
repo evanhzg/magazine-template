@@ -24,6 +24,26 @@ body
 
   main {
     height: 100%;
+
+    section {
+      > a {
+        display: none;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-family: "Arial Black";
+
+        font-size: 4em;
+        height: auto !important;
+        width: auto !important;
+      }
+    }
+
+    #newsletter {
+      > a {
+        color: #292929;
+      }
+    }
   }
 }
 
@@ -357,11 +377,16 @@ footer {
   }
   section {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-height: 10em;
 
     * {
       display: none !important;
+    }
+
+    > a {
+      display: block !important;
     }
   }
 }
