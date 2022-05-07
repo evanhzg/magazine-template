@@ -1,15 +1,16 @@
 // Variables
-$clr-default-bg : #292929;
-$clr-default-text : #FFFFFF;
+$clr-default-bg: #292929;
+$clr-default-text: #ffffff;
 
-$ff-headings : 'Arial Black', sans-serif;
-$ff-default : 'Roboto Slab', serif;
+$ff-headings: "Arial Black", sans-serif;
+$ff-default: "Roboto Slab", serif;
 
-$fw-headings : 900;
+$fw-headings: 900;
 
 // Global settings
 
-body, html {
+body,
+html {
   min-height: 100vh;
   width: 100%;
   margin: 0;
@@ -17,8 +18,7 @@ body, html {
   position: relative;
 }
 
-body
-{
+body {
   background-color: $clr-default-bg;
   color: $clr-default-text;
 
@@ -30,7 +30,7 @@ body
         display: none;
         text-transform: uppercase;
         text-decoration: none;
-        color: #FFFFFF;
+        color: #ffffff;
         font-family: "Arial Black";
 
         font-size: 4em;
@@ -47,7 +47,6 @@ body
   }
 }
 
-
 h1,
 h2,
 h3,
@@ -57,8 +56,7 @@ p {
 
 h1,
 h2,
-h3
-{
+h3 {
   font-family: $ff-headings;
   font-weight: $fw-headings;
   font-size: 4rem;
@@ -135,7 +133,6 @@ button {
     max-height: 80vh;
 
     .art__body__header {
-
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -215,7 +212,7 @@ button {
   justify-content: center;
   align-items: center;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   color: #292929;
 
@@ -233,15 +230,14 @@ button {
 
       &::before,
       &::after {
-        content: '';
+        content: "";
         width: 55%;
         border: 2px solid #292929;
-        transition: .5s;
-
+        transition: 0.5s;
       }
 
       &::before {
-        top: -.5em;
+        top: -0.5em;
         position: absolute;
         left: -10%;
       }
@@ -249,8 +245,7 @@ button {
       &::after {
         position: absolute;
         right: -10%;
-        bottom: -.5em;
-
+        bottom: -0.5em;
       }
     }
 
@@ -270,7 +265,7 @@ button {
         cursor: default;
 
         width: 100%;
-        padding: .5em 1em;
+        padding: 0.5em 1em;
         &::placeholder {
           color: #292929;
           text-transform: uppercase;
@@ -282,10 +277,10 @@ button {
         transform: translate(45%, -50%);
         top: 50%;
         right: 0;
-        color: #B6B6B6;
+        color: #b6b6b6;
 
         &:hover {
-          color: #C17A7A;
+          color: #c17a7a;
         }
       }
     }
@@ -300,7 +295,7 @@ button {
 
   display: flex;
   height: 100vh;
-  >* {
+  > * {
     margin: auto;
   }
 }
@@ -308,8 +303,7 @@ button {
 // FOOTER
 
 footer,
-header
-{
+header {
   width: 100%;
   display: flex;
   align-items: center;
@@ -321,13 +315,13 @@ header {
   display: flex;
   align-items: center;
   padding-block: 1em;
-  transition: .2s;
+  transition: 0.2s;
 
   a {
     cursor: pointer;
     &:not(:active) {
       i {
-        opacity: .2;
+        opacity: 0.2;
       }
     }
 
@@ -341,8 +335,8 @@ header {
     i {
       font-size: 4rem;
       margin: 0;
-      color: #FFFFFF;
-      transition: .2s;
+      color: #ffffff;
+      transition: 0.2s;
     }
   }
 
@@ -352,8 +346,8 @@ header {
 }
 
 header a:hover {
-   i {
-     opacity: 1
+  i {
+    opacity: 1;
   }
 }
 
@@ -361,8 +355,8 @@ footer {
   padding-block: 4em;
   bottom: 0;
   font-family: Arial;
-  font-size: .8rem;
-  color: #B6B6B6;
+  font-size: 0.8rem;
+  color: #b6b6b6;
 }
 
 #main:target {
@@ -390,3 +384,7 @@ footer {
     }
   }
 }
+
+// TODO 1. Clean code, add comments and reorganize everything to be coherent and readable.
+// TODO 2. Make the template responsive, at least for mobile.
+// TODO 3. Add more effects, and maybe some articles.
