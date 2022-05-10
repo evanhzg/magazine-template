@@ -1,15 +1,11 @@
 // Variables
-$clr-dark: #292929;
-$clr-light: #ffffff;
+$clr-default-bg: #292929;
+$clr-default-text: #ffffff;
 
 $ff-headings: "Arial Black", sans-serif;
 $ff-default: "Roboto Slab", serif;
-$ff-footer: "Arial", sans-serif;
 
 $fw-headings: 900;
-
-$pd-default: 1.5em;
-$pd-big: $pd-default * 2;
 
 // Global settings
 
@@ -23,27 +19,30 @@ html {
 }
 
 body {
-  background-color: $clr-dark;
-  color: $clr-light;
+  background-color: $clr-default-bg;
+  color: $clr-default-text;
 
   main {
     height: 100%;
 
-    // Gestion des items du menu
-    section > a {
-      display: none;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $clr-light;
-      font-family: "Arial Black";
+    section {
+      > a {
+        display: none;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #ffffff;
+        font-family: "Arial Black";
 
-      font-size: 4em;
-      height: auto !important;
-      width: auto !important;
+        font-size: 4em;
+        height: auto !important;
+        width: auto !important;
+      }
     }
 
-    #newsletter > a {
-      color: $clr-dark;
+    #newsletter {
+      > a {
+        color: #292929;
+      }
     }
   }
 }
@@ -66,7 +65,7 @@ h3 {
 }
 
 h1 {
-  color: $clr-dark;
+  color: #292929;
 }
 
 h2 {
@@ -81,12 +80,8 @@ p {
   letter-spacing: 0.5px;
 }
 
-button,
-a {
-  cursor: pointer;
-}
-
 button {
+  cursor: pointer;
   text-transform: uppercase;
   border: none;
   background-color: transparent;
@@ -111,7 +106,6 @@ button {
 
 .art__body__text {
   display: flex;
-  flex-direction: row;
   gap: 1.5em;
   > * {
     display: flex;
@@ -130,8 +124,9 @@ button {
   flex-direction: row;
 
   height: 100vh;
+  height: 100vh;
   .art__body {
-    padding: $pd-default;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -151,6 +146,11 @@ button {
         margin: 0;
       }
     }
+
+    .art__body__text {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   & > * {
@@ -164,12 +164,12 @@ button {
   flex-direction: column;
   justify-content: space-between;
 
-  padding: $pd-default;
+  padding: 2em;
 
   background-image: url("../assets/art02-bg.jpg");
   background-size: cover;
   background-position: center;
-  height: calc(100vh - $pd-default * 2);
+  height: calc(100vh - 4em);
 
   * {
     margin: 0;
@@ -178,7 +178,7 @@ button {
     display: flex;
     justify-content: space-between;
 
-    padding: $pd-big;
+    padding: 4em;
 
     > * {
       max-width: 50%;
@@ -191,13 +191,13 @@ button {
     }
 
     :nth-child(1) {
-      color: $clr-dark;
+      color: #292929;
       display: flex;
       flex-direction: column;
       gap: 2em;
 
       div {
-        background-color: $clr-dark;
+        background-color: #292929;
         width: 50%;
       }
     }
@@ -212,9 +212,9 @@ button {
   justify-content: center;
   align-items: center;
 
-  background-color: $clr-light;
+  background-color: #ffffff;
 
-  color: $clr-dark;
+  color: #292929;
 
   #newsletter__body {
     display: flex;
@@ -232,7 +232,7 @@ button {
       &::after {
         content: "";
         width: 55%;
-        border: 2px solid $clr-dark;
+        border: 2px solid #292929;
         transition: 0.5s;
       }
 
@@ -267,7 +267,7 @@ button {
         width: 100%;
         padding: 0.5em 1em;
         &::placeholder {
-          color: $clr-dark;
+          color: #292929;
           text-transform: uppercase;
         }
       }
@@ -317,42 +317,52 @@ header {
   padding-block: 1em;
   transition: 0.2s;
 
-  // Menu buttons (opener  and  closer)
   a {
     cursor: pointer;
-    opacity: 0.2;
-    font-size: 4rem;
-    margin: 0;
-    color: $clr-light;
-    transition: 0.2s;
-
-    &:hover {
-      opacity: 1;
+    &:not(:active) {
+      i {
+        opacity: 0.2;
+      }
     }
 
     &:active {
-      color: $clr-dark;
+      i {
+        opacity: 1;
+        color: blue;
+      }
+    }
+
+    i {
+      font-size: 4rem;
+      margin: 0;
+      color: #ffffff;
+      transition: 0.2s;
     }
   }
 
-  // Menu closer button
   #nomenu {
     display: none;
+  }
+}
+
+header a:hover {
+  i {
+    opacity: 1;
   }
 }
 
 footer {
   padding-block: 4em;
   bottom: 0;
-  font-family: $ff-footer;
+  font-family: Arial;
   font-size: 0.8rem;
   color: #b6b6b6;
 }
 
-#menu:target {
+#main:target {
   max-height: 100vh;
   header {
-    #onmenu {
+    #menu {
       display: none;
     }
     #nomenu {
@@ -375,50 +385,6 @@ footer {
   }
 }
 
-// MEDIA QUERIES
-
-@media (max-width: 840px) {
-  #art__01 {
-    flex-direction: column;
-    min-height: 100vh;
-    height: auto;
-
-    .art__picture {
-      img {
-        max-height: 100%;
-      }
-      max-height: 50vh;
-    }
-    * {
-      width: 100%;
-      .divider {
-        display: none;
-      }
-    }
-
-    .art__body {
-      padding: 0;
-      gap: 1em;
-      flex-direction: column;
-      .art__body__header {
-        display: none;
-      }
-
-      .art__body__text {
-        flex-direction: column;
-
-        > * {
-          max-width: 100%;
-        }
-      }
-    }
-  }
-
-  #art__02,
-  #newsletter {
-    display: none;
-  }
-}
-
-// TODO 4. Make the template responsive, at least for mobile.
-// TODO 5. Add more effects, and maybe some articles.
+// TODO 1. Clean code, add comments and reorganize everything to be coherent and readable.
+// TODO 2. Make the template responsive, at least for mobile.
+// TODO 3. Add more effects, and maybe some articles.
