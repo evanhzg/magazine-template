@@ -1,11 +1,15 @@
 // Variables
-$clr-default-bg: #292929;
-$clr-default-text: #ffffff;
+$clr-dark: #292929;
+$clr-light: #ffffff;
 
 $ff-headings: "Arial Black", sans-serif;
 $ff-default: "Roboto Slab", serif;
+$ff-footer: "Arial", sans-serif;
 
 $fw-headings: 900;
+
+$pd-default: 1.5em;
+$pd-big: $pd-default * 2;
 
 // Global settings
 
@@ -19,30 +23,27 @@ html {
 }
 
 body {
-  background-color: $clr-default-bg;
-  color: $clr-default-text;
+  background-color: $clr-dark;
+  color: $clr-light;
 
   main {
     height: 100%;
 
-    section {
-      > a {
-        display: none;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #ffffff;
-        font-family: "Arial Black";
+    // Gestion des items du menu
+    section > a {
+      display: none;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $clr-light;
+      font-family: "Arial Black";
 
-        font-size: 4em;
-        height: auto !important;
-        width: auto !important;
-      }
+      font-size: 4em;
+      height: auto !important;
+      width: auto !important;
     }
 
-    #newsletter {
-      > a {
-        color: #292929;
-      }
+    #newsletter > a {
+      color: $clr-dark;
     }
   }
 }
@@ -65,7 +66,7 @@ h3 {
 }
 
 h1 {
-  color: #292929;
+  color: $clr-dark;
 }
 
 h2 {
@@ -80,8 +81,12 @@ p {
   letter-spacing: 0.5px;
 }
 
-button {
+button,
+a {
   cursor: pointer;
+}
+
+button {
   text-transform: uppercase;
   border: none;
   background-color: transparent;
@@ -106,6 +111,7 @@ button {
 
 .art__body__text {
   display: flex;
+  flex-direction: row;
   gap: 1.5em;
   > * {
     display: flex;
@@ -124,9 +130,8 @@ button {
   flex-direction: row;
 
   height: 100vh;
-  height: 100vh;
   .art__body {
-    padding: 1.5em;
+    padding: $pd-default;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,11 +151,6 @@ button {
         margin: 0;
       }
     }
-
-    .art__body__text {
-      display: flex;
-      flex-direction: row;
-    }
   }
 
   & > * {
@@ -164,12 +164,12 @@ button {
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 2em;
+  padding: $pd-default;
 
   background-image: url("../assets/art02-bg.jpg");
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 4em);
+  height: calc(100vh - $pd-default * 2);
 
   * {
     margin: 0;
@@ -178,7 +178,7 @@ button {
     display: flex;
     justify-content: space-between;
 
-    padding: 4em;
+    padding: $pd-big;
 
     > * {
       max-width: 50%;
@@ -191,13 +191,13 @@ button {
     }
 
     :nth-child(1) {
-      color: #292929;
+      color: $clr-dark;
       display: flex;
       flex-direction: column;
       gap: 2em;
 
       div {
-        background-color: #292929;
+        background-color: $clr-dark;
         width: 50%;
       }
     }
@@ -212,9 +212,9 @@ button {
   justify-content: center;
   align-items: center;
 
-  background-color: #ffffff;
+  background-color: $clr-light;
 
-  color: #292929;
+  color: $clr-dark;
 
   #newsletter__body {
     display: flex;
@@ -232,7 +232,7 @@ button {
       &::after {
         content: "";
         width: 55%;
-        border: 2px solid #292929;
+        border: 2px solid $clr-dark;
         transition: 0.5s;
       }
 
@@ -267,7 +267,7 @@ button {
         width: 100%;
         padding: 0.5em 1em;
         &::placeholder {
-          color: #292929;
+          color: $clr-dark;
           text-transform: uppercase;
         }
       }
@@ -317,52 +317,42 @@ header {
   padding-block: 1em;
   transition: 0.2s;
 
+  // Menu buttons (opener  and  closer)
   a {
     cursor: pointer;
-    &:not(:active) {
-      i {
-        opacity: 0.2;
-      }
+    opacity: 0.2;
+    font-size: 4rem;
+    margin: 0;
+    color: $clr-light;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 1;
     }
 
     &:active {
-      i {
-        opacity: 1;
-        color: blue;
-      }
-    }
-
-    i {
-      font-size: 4rem;
-      margin: 0;
-      color: #ffffff;
-      transition: 0.2s;
+      color: $clr-dark;
     }
   }
 
+  // Menu closer button
   #nomenu {
     display: none;
-  }
-}
-
-header a:hover {
-  i {
-    opacity: 1;
   }
 }
 
 footer {
   padding-block: 4em;
   bottom: 0;
-  font-family: Arial;
+  font-family: $ff-footer;
   font-size: 0.8rem;
   color: #b6b6b6;
 }
 
-#main:target {
+#menu:target {
   max-height: 100vh;
   header {
-    #menu {
+    #onmenu {
       display: none;
     }
     #nomenu {
@@ -385,6 +375,50 @@ footer {
   }
 }
 
-// TODO 1. Clean code, add comments and reorganize everything to be coherent and readable.
-// TODO 2. Make the template responsive, at least for mobile.
-// TODO 3. Add more effects, and maybe some articles.
+// MEDIA QUERIES
+
+@media (max-width: 840px) {
+  #art__01 {
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+
+    .art__picture {
+      img {
+        max-height: 100%;
+      }
+      max-height: 50vh;
+    }
+    * {
+      width: 100%;
+      .divider {
+        display: none;
+      }
+    }
+
+    .art__body {
+      padding: 0;
+      gap: 1em;
+      flex-direction: column;
+      .art__body__header {
+        display: none;
+      }
+
+      .art__body__text {
+        flex-direction: column;
+
+        > * {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  #art__02,
+  #newsletter {
+    display: none;
+  }
+}
+
+// TODO 4. Make the template responsive, at least for mobile.
+// TODO 5. Add more effects, and maybe some articles.
